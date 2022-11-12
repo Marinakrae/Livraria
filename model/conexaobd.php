@@ -7,12 +7,12 @@
         $user    = 'root';
         $pass    = '';
         $banco   = 'livraria';
-        $conexao = mysqli_conect($servidor, $user, $pass, $banco) or die(mysqli_conect_error());
+        $conexao = mysqli_connect($server, $user, $pass, $banco) or die(mysqli_conect_error());
     }
 
     function query($sql){
         global $conexao;
-        mysqli_query($conexao, "SET CHARACTER SET utf8");
+        mysqli_query($conexao, "set character set utf8");
         $query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
         return $query;
     }
