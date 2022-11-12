@@ -1,0 +1,17 @@
+.navbar{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.color{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: pink;
+}
+
+.container{
+    margin-top: 50px;
+    width: 40%;
+    text-align: center;
+}
+.input_size{
+    width: 30%;
+}
