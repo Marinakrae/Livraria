@@ -10,6 +10,7 @@
 .container{
     margin-top: 50px;
     width: 40%;
+    text-align: center;
 }
 .input_size{
     width: 30%;
