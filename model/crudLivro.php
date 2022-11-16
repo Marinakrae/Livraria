@@ -17,19 +17,6 @@
         close();
         return $registrado;
     }
-    function listarGenero(){
-        conect();
-        $dados = query("SELECT * FROM genero ORDER BY nome");
-        close();
-        $row = [];
-        if (mysqli_num_rows($dados) > 0) {
-            while ($rows = mysqli_fetch_assoc($dados)) {
-                $row[] = $rows;
-            }
-        }
-        return $row;
-    }
-
     function listarLivro(){
         conect();
         $dados = query("SELECT l.id, l.nome AS 'Título', l.ano AS 'Lançamento', g.nome AS 'Gênero' FROM livros l JOIN genero g ON l.id_genero = g.id");

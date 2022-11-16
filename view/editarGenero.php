@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="cadastroGenero.html">Cadastrar gênero</a>
+                        <a class="nav-link active" aria-current="page" href="cadastroLivro.php">Cadastrar livro</a>
                     </li>
                 </ul>
                 <form class="d-flex" method="POST" action="../control/controle.php">
@@ -31,25 +31,18 @@
         </div>
     </nav>
     <div class="container">
-        <form method="POST" action="../control/controleLivro.php">
+        <?php 
+            include '../model/crudGenero.php';
+            $id = $_GET['id'];
+            $editar = listarGeneroEditar($id);
+
+        ?>
+        <form method="GET" action="../control/controleGenero.php">
             <div class="mb-3">
-                <label for="nome_titulo" class="form-label">Título</label>
-                <input type="text" class="form-control" id="nome_titulo" name="titulo">
-                <label for="ano_lanc" class="form-label">Ano</label>
-                <input type="text" class="form-control" id="ano_lanc" name="ano">
-                <label for="generos" class="form-label">Gênero</label>
-                <input class="form-control" list="genero" id="generos" name="genero" placeholder="Digite para buscar...">
-                <datalist id="genero">
-                    <?php
-                        include '../model/crudGenero.php';
-                        $row = listarGenero();
-                        foreach($row as $rows){
-                            echo "<option value='$rows[nome]'>";
-                        }
-                    ?>
-                </datalist>
+              <label for="nome_genero" class="form-label">Gênero</label>
+              <input type="text" class="form-control" id="nome_genero" name="genero" value="<?php echo $editar['nome'];?>">
             </div>
-            <button type="submit" class="btn btn-outline-light" name="opcao" value="cadastrar">Cadastrar</button>
+            <button type="submit" class="btn btn-outline-light" name="opcao" value="editar">Editar</button>
         </form>
     </div>
 </body>

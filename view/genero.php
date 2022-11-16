@@ -39,16 +39,20 @@
                 <tr>
                     <th scope="col">Código</th>
                     <th scope="col">Gênero</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Apagar</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                    include '../model/crudLivro.php';
+                    include '../model/crudGenero.php';
                     $row = listarGenero();
                     foreach($row as $rows){
                         echo "<tr>";
                             echo "<td>", $rows['id'], "</td>";
                             echo "<td>", $rows['nome'], "</td>";
+                            echo "<td><a href='editarGenero.php?id=$rows[id]'>Editar</a></td>";
+                            echo "<td><a href='../control/controleGenero.php?id=$rows[id]&opcao=deletar'>Apagar</a></td>";
                         echo "</tr>";
                     }
                 ?>
