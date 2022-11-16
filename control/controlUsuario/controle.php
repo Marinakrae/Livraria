@@ -12,7 +12,11 @@
             break;
         case 'logar':
             acessa($_POST['nome'], sha1($_POST['senha']));
+            break;
+        case 'sair':
+            session_destroy();
+            header('location: ../view/index.html');
         default:
-            echo "Opção inválida!";
+            return NULL;
     }
 ?>
