@@ -38,7 +38,18 @@
         }
         return $row;
     }
-    function editarGenero($genero){
-        
+    function editarGenero($id, $genero){
+        conect();
+        $dados = query("SELECT nome FROM genero WHERE id = '$id'");
+        $row   = mysqli_fetch_assoc($dados);
+        if(!empty($_GET['genero']) && $_GET['genero'] != $row['nome']){
+            query("UPDATE genero SET nome = '$genero' WHERE id = '$id'");
+        }
+        close();
+    }
+    function deletarGenero($id){
+        conect();
+        query("DELETE FROM genero WHERE id = '$id'");
+        close();
     }
 ?>

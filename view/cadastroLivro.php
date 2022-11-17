@@ -24,14 +24,14 @@
                         <a class="nav-link active" aria-current="page" href="cadastroGenero.html">Cadastrar gênero</a>
                     </li>
                 </ul>
-                <form class="d-flex" method="POST" action="../control/controle.php">
+                <form class="d-flex" method="GET" action="../control/controle.php">
                     <button class="btn btn-outline-light" type="submit" name="opcao" value="sair">Sair</button>
                 </form>
             </div>
         </div>
     </nav>
     <div class="container">
-        <form method="POST" action="../control/controleLivro.php">
+        <form method="GET" action="../control/controleLivro.php">
             <div class="mb-3">
                 <label for="nome_titulo" class="form-label">Título</label>
                 <input type="text" class="form-control" id="nome_titulo" name="titulo">

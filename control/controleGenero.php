@@ -11,9 +11,15 @@
             }
             break;
         case 'editar':
-            
+            editarGenero($_GET['id'], $_GET['genero']);
+            header('location: ../view/genero.php');
+            break;
+        case 'deletar':
+            deletarGenero($_GET['id']);
+            header('location: ../view/genero.php');
+            break;
         default:
-            
+            echo "Opção inválida!";
             break;
     }
 ?>

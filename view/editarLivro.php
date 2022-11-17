@@ -21,45 +21,37 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="cadastroLivro.php">Cadastrar livros</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="cadastroGenero.html">Cadastrar gênero</a>
                     </li>
                 </ul>
-                <form class="d-flex" method="POST" action="../control/controle.php">
+                <form class="d-flex" method="GET" action="../control/controle.php">
                     <button class="btn btn-outline-light" type="submit" name="opcao" value="sair">Sair</button>
                 </form>
             </div>
         </div>
     </nav>
     <div class="container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Título</th>
-                    <th scope="col">Gênero</th>
-                    <th scope="col">Ano</th>
-                    <th scope="col">Editar</th>
-                    <th scope="col">Apagar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    include '../model/crudLivro.php';
-                    $row = listarLivro();
-                    foreach($row as $rows){
-                        echo "<tr>";
-                            echo "<td>", $rows['Título'], "</td>";
-                            echo "<td>", $rows['Gênero'], "</td>";
-                            echo "<td>", $rows['Lançamento'], "</td>";
-                            echo "<td><a href='../view/editarLivro.php?id=$rows[id]'>Editar</a></td>";
-                            echo "<td><a href='../control/controleLivro.php?id=$rows[id]&opcao=deletar'>Apagar</a></td>";
-                        echo "</tr>";
-                    }
-                ?>
-            </tbody>
-        </table>
+        <?php
+            include '../model/crudLivro.php';
+            $id     = $_GET['id'];
+            $editar = listarLivroEditar($id);
+        ?>
+        <form method="GET" action="../control/controleLivro.php">
+            <div class="mb-3">
+                <label for="nome_titulo" class="form-label">Título</label>
+                <input type="text" class="form-control" id="nome_titulo" name="titulo" value="<?php echo $editar['Título'];?>">
+                <label for="ano_lanc" class="form-label">Ano</label>
+                <input type="text" class="form-control" id="ano_lanc" name="ano" value="<?php echo $editar['Lançamento'];?>">
+                <label for="generos" class="form-label">Gênero</label>
+                <input class="form-control" list="genero" id="generos" name="genero" placeholder="Digite para buscar...">
+                <datalist id="genero">
+                    <?php
+                        echo "<option value='$editar[Gênero]'>";
+                    ?>
+                </datalist>
+            </div>
+            <button type="submit" class="btn btn-outline-light" name="opcao" value="editar">Editar</button>
+        </form>
     </div>
 </body>
 </html>

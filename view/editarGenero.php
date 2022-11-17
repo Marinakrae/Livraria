@@ -35,10 +35,10 @@
             include '../model/crudGenero.php';
             $id = $_GET['id'];
             $editar = listarGeneroEditar($id);
-
         ?>
         <form method="GET" action="../control/controleGenero.php">
             <div class="mb-3">
+              <input type="hidden" name="id" value="<?php echo $editar['id'];?>">
               <label for="nome_genero" class="form-label">Gênero</label>
               <input type="text" class="form-control" id="nome_genero" name="genero" value="<?php echo $editar['nome'];?>">
             </div>

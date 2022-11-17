@@ -10,7 +10,7 @@
             $registrado = true;
         } else {
             $registrado = false;
-            if(!empty($_POST['genero'])){
+            if(!empty($_GET['titulo'])){
                 query("INSERT INTO livros(nome, id_genero, ano) VALUE('$livro', $id, '$ano')");
             }
         }
@@ -28,5 +28,19 @@
             }
         }
         return $row;
+    }
+    function listarLivroEditar($id){
+        conect();
+        $dados = query("SELECT l.id, l.nome AS 'Título', l.ano AS 'Lançamento', g.nome AS 'Gênero' FROM livros l JOIN genero g ON l.id_genero = g.id WHERE l.id = '$id'");
+        close();
+        if (mysqli_num_rows($dados) > 0) {
+            $row = mysqli_fetch_assoc($dados);
+        }
+        return $row;
+    }
+    function deletarLivro($id){
+        conect();
+        query("DELETE FROM livros WHERE id = '$id'");
+        close();
     }
 ?>
