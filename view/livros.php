@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(empty($_SESSION['nome'])){
+        header('location:telaLogin.html');
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,7 +30,7 @@
                         <a class="nav-link active" aria-current="page" href="cadastroLivro.php">Cadastrar livros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="cadastroGenero.html">Cadastrar gênero</a>
+                        <a class="nav-link active" aria-current="page" href="cadastroGenero.php">Cadastrar gênero</a>
                     </li>
                 </ul>
                 <form class="d-flex" method="POST" action="../control/controle.php">

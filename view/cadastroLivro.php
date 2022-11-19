@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(empty($_SESSION['nome'])){
+        header('location:telaLogin.html');
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,7 +27,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="cadastroGenero.html">Cadastrar gênero</a>
+                        <a class="nav-link active" aria-current="page" href="cadastroGenero.php">Cadastrar gênero</a>
                     </li>
                 </ul>
                 <form class="d-flex" method="GET" action="../control/controle.php">

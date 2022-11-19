@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(empty($_SESSION['nome'])){
+        header('location:telaLogin.html');
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

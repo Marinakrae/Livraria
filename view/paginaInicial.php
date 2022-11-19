@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(empty($_SESSION['nome'])){
+        header('location:telaLogin.html');
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -26,6 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="genero.php">Gênero</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="configurações.php">Configurações</a>
+                    </li>
                 </ul>
                 <form class="d-flex" method="POST" action="../control/controle.php">
                     <button class="btn btn-outline-light" type="submit" name="opcao" value="sair">Sair</button>
@@ -33,6 +42,11 @@
             </div>
         </div>
     </nav>
+    <div>
+        <?php
+            echo "Olá, " . $_SESSION['nome'];
+        ?>
+    </div>
     <div class="container">
         <table class="table">
             <thead>
