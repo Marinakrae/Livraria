@@ -44,15 +44,16 @@
         ?>
         <form method="GET" action="../control/controleLivro.php">
             <div class="mb-3">
+                <input type="hidden" name="id" value="<?php echo $editar['id'];?>">
                 <label for="nome_titulo" class="form-label">Título</label>
                 <input type="text" class="form-control" id="nome_titulo" name="titulo" value="<?php echo $editar['Título'];?>">
                 <label for="ano_lanc" class="form-label">Ano</label>
                 <input type="text" class="form-control" id="ano_lanc" name="ano" value="<?php echo $editar['Lançamento'];?>">
                 <label for="generos" class="form-label">Gênero</label>
-                <input class="form-control" list="genero" id="generos" name="genero" placeholder="Digite para buscar...">
+                <input class="form-control" disabled value="<?php echo $editar['Gênero'];?>" list="genero" id="generos" name="genero" placeholder="Digite para buscar...">
                 <datalist id="genero">
                     <?php
-                        echo "<option value='$editar[Gênero]'>";
+                        echo "<option selected value='$editar[Gênero]'>";
                     ?>
                 </datalist>
             </div>
