@@ -24,28 +24,27 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="genero.php">Gênero</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="cadastroLivro.php">Cadastrar livro</a>
-                    </li>
-                </ul>
-                <form class="d-flex" method="POST" action="../control/controle.php">
-                    <button class="btn btn-outline-light" type="submit" name="opcao" value="sair">Sair</button>
-                </form>
-            </div>
+            <form class="d-flex" action="index.html">
+                <button class="btn btn-outline-light" type="submit">Voltar</button>
+            </form>
         </div>
     </nav>
     <div class="container">
-        <form method="GET" action="../control/controleGenero.php">
+    <?php
+        include "../model/crudUsuario.php";
+        $row = listaUsuarioEditar();
+    ?>
+        <form method="POST" action="../control/controle.php">
             <div class="mb-3">
-              <label for="nome_genero" class="form-label">Gênero</label>
-              <input type="text" class="form-control" id="nome_genero" name="genero">
+                <input type="hidden" class="form-control" name="id" value="<?php echo $row['id']; ?>">
+                <label for="nome" class="form-label">Usuário</label>
+                <input type="text" class="form-control" name="nome_user" value="<?php echo $row['nome']; ?>">
             </div>
-            <button type="submit" class="btn btn-outline-light" name="opcao" value="cadastrar">Cadastrar</button>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Password</label>
+                <input type="password" class="form-control" name="senha_user" value="<?php echo $row['senha']; ?>">
+            </div>
+                <button class="btn btn-outline-light" name="opcao" value="editar">Editar</button><br>
         </form>
     </div>
 </body>

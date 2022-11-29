@@ -5,9 +5,11 @@
         case 'cadastrar':
             $verificaRegistro = cadastra($_GET['titulo'], $_GET['genero'], $_GET['ano']);
             if($verificaRegistro){
-                echo "Livro já cadastrado.";
+                echo  "<script>alert('Livro já cadastrado.');</script>";
+                echo "<script>window.location='../view/cadastroLivro.php';</script>";
             } else {
-                echo "Livro cadastrado com sucesso!";
+                echo  "<script>alert('Livro cadastrado com sucesso.');</script>";
+                echo "<script>window.location='../view/livros.php';</script>";
             }
             break;
         case 'editar':

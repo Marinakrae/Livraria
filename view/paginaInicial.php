@@ -33,7 +33,7 @@
                         <a class="nav-link active" aria-current="page" href="genero.php">Gênero</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="configurações.php">Configurações</a>
+                        <a class="nav-link active" aria-current="page" href="configuracoes.php">Configurações</a>
                     </li>
                 </ul>
                 <form class="d-flex" method="POST" action="../control/controle.php">
