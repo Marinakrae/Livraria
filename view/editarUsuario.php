@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(empty($_SESSION['nome'])){
+        header('location:telaLogin.html');
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,18 +29,23 @@
             </form>
         </div>
     </nav>
+    <?php 
+        include '../model/crudUsuario.php';
+        $id = $_SESSION['id'];
+        $row = listaUsuarioEditar($id); 
+    ?>
     <div class="container">
         <form method="GET" action="../control/controle.php">
             <div class="mb-3">
+                <input type="hidden" class="form-control" name="id" value="<?php echo $row['id']; ?>">
                 <label for="nome" class="form-label">Usuário</label>
-                <input type="text" class="form-control" name="nome">
+                <input type="text" class="form-control" name="nome_user" value="<?php echo $row['nome']; ?>">
             </div>
             <div class="mb-3">
                 <label for="senha" class="form-label">Password</label>
-                <input type="password" class="form-control" name="senha">
+                <input type="text" class="form-control" name="senha_user" value="<?php echo $row['senha']; ?>">
             </div>
-                <button type="submit" class="btn btn-outline-light" name="opcao" value="logar">Acessar</button><br>
-                Não possui conta? <a href="cadastroUsuario.html">Cadastre-se</a>
+                <button type="submit" class="btn btn-outline-light" name="opcao" value="editar">Editar</button><br>
         </form>
     </div>
 </body>

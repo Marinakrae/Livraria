@@ -1,9 +1,9 @@
 <?php
     include '../model/crudUsuario.php';
-    $opcao = $_POST['opcao'];
+    $opcao = $_GET['opcao'];
     switch($opcao){
         case 'cadastrar':
-            $verifica_registro = registraUsuario($_POST['nome'], sha1($_POST['senha']));
+            $verifica_registro = registraUsuario($_GET['nome'], sha1($_GET['senha']));
             if($verifica_registro){
                 echo  "<script>alert('Usuário já cadastrado.');</script>";
                 echo  "<script>window.location='../view/telaLogin.html';</script>";
@@ -13,7 +13,7 @@
             }
             break;
         case 'logar':
-            acessa($_POST['nome'], sha1($_POST['senha']));
+            acessa($_GET['nome'], sha1($_GET['senha']));
             break;
         case 'sair':
             session_start();
@@ -21,7 +21,7 @@
             header('location: ../view/telaLogin.html');
             break;
         case 'editar':
-            edita($_POST['nome_user'], sha1($_POST['senha_user']));
+            edita($_GET['id'], $_GET['nome_user'], sha1($_GET['senha_user']));
             break;
         default:
             echo "Opção inválida!";

@@ -24,28 +24,41 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-            <form class="d-flex" action="index.html">
-                <button class="btn btn-outline-light" type="submit">Voltar</button>
-            </form>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+                <form class="d-flex" method="GET" action="../control/controle.php">
+                    <button class="btn btn-outline-light" type="submit" name="opcao" value="sair">Sair</button>
+                </form>
+            </div>
         </div>
     </nav>
     <div class="container">
-    <?php
-        include "../model/crudUsuario.php";
-        $row = listaUsuarioEditar();
-    ?>
-        <form method="POST" action="../control/controle.php">
-            <div class="mb-3">
-                <input type="hidden" class="form-control" name="id" value="<?php echo $row['id']; ?>">
-                <label for="nome" class="form-label">Usuário</label>
-                <input type="text" class="form-control" name="nome_user" value="<?php echo $row['nome']; ?>">
-            </div>
-            <div class="mb-3">
-                <label for="senha" class="form-label">Password</label>
-                <input type="password" class="form-control" name="senha_user" value="<?php echo $row['senha']; ?>">
-            </div>
-                <button class="btn btn-outline-light" name="opcao" value="editar">Editar</button><br>
-        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Senha</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Apagar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    include '../model/crudUsuario.php';
+                    $id = $_SESSION['id'];
+                    $row = listaUsuarioEditar($id);
+                    echo "<tr>";
+                        echo "<td>", $row['id'], "</td>";
+                        echo "<td>", $row['nome'], "</td>";
+                        echo "<td>", $row['senha'], "</td>";
+                        echo "<td><a href='editarUsuario.php?id=$row[id]'>Editar</a></td>";
+                        echo "<td><a href='../control/controleGenero.php?id=$row[id]&opcao=deletar'>Apagar</a></td>";
+                    echo "</tr>";
+                ?>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
