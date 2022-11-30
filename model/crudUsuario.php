@@ -53,28 +53,28 @@
         $dados = query("SELECT * FROM usuarios WHERE id = $id");
         $row = mysqli_fetch_assoc($dados);
         $id = $row['id'];
-        if(($nome != $row['nome'])){
-            query("UPDATE usuarios SET nome = '$nome' WHERE id = $id");
+        $senha_criptografada = sha1($senha);
+        if($nome != $row['nome'] && $senha != $row['senha']){
+            query("UPDATE usuarios SET nome = '$nome', senha = '$senha_criptografada' WHERE id = $id");
             unset($_SESSION['nome']);
             $_SESSION['nome'] = $nome;
             echo  "<script>alert('Nome e senha atualizados com sucesso!');</script>";
             echo  "<script>window.location='../view/paginaInicial.php';</script>";
-
-        } else if($nome != $row['nome'] && $senha != $row['senha']){
-            query("UPDATE usuarios SET nome = '$nome' AND senha = '$senha' WHERE id = $id");
+        } else if($nome != $row['nome']){
+            query("UPDATE usuarios SET nome = '$nome' WHERE id = $id");
             $_SESSION['nome'] = $nome;
-
             echo  "<script>alert('Nome atualizado com sucesso!');</script>";
             echo  "<script>window.location='../view/paginaInicial.php';</script>";
-
         } else if ($senha != $row['senha']){
-
-            query("UPDATE usuarios SET senha = '$senha' WHERE id = $id");
-
+            query("UPDATE usuarios SET senha = '$senha_criptografada' WHERE id = $id");
             echo  "<script>alert('Senha atualizada com sucesso!');</script>";
             echo  "<script>window.location='../view/paginaInicial.php';</script>";
-
         }
+        close();
+    }
+    function apaga($id){
+        conect();
+        query("DELETE FROM usuarios WHERE id = $id");
         close();
     }
 ?>

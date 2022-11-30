@@ -13,13 +13,15 @@
             }
             break;
         case 'editar':
+            editarLivro($_GET['id'], $_GET['titulo'], $_GET['ano']);
             break;
         case 'deletar':
             deletarLivro($_GET['id']);
             header('location: ../view/livros.php');
             break;
-        default:
-            
-            break;
+    default:
+        echo  "<script>alert('Opção inválida.');</script>";
+        echo  "<script>window.location='../view/livros.php';</script>";
+        break;
     }
 ?>

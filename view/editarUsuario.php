@@ -20,11 +20,11 @@
 <body class="color">
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #FF8FB1;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Home</a>
+            <a class="navbar-brand" href="paginaInicial.php">Home</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-            <form class="d-flex" action="index.html">
+            <form class="d-flex" action="paginaInicial.html">
                 <button class="btn btn-outline-light" type="submit">Voltar</button>
             </form>
         </div>

@@ -43,4 +43,22 @@
         query("DELETE FROM livros WHERE id = '$id'");
         close();
     }
+    function editarLivro($id, $titulo, $ano){
+        conect();
+        $dados = query("SELECT * FROM livros WHERE id = $id");
+        $row = mysqli_fetch_assoc($dados);
+        if($titulo != $row['nome'] && $ano != $row['ano']){
+            query("UPDATE livros SET nome = '$titulo', ano = $ano");
+            echo  "<script>alert('Título e ano editados com sucesso.');</script>";
+            echo "<script>window.location='../view/livros.php';</script>";
+        } else if($titulo != $row['nome']){
+            query("UPDATE livros SET nome = '$titulo'");
+            echo  "<script>alert('Título editado com sucesso.');</script>";
+            echo "<script>window.location='../view/livros.php';</script>";
+        } else {
+            query("UPDATE livros SET ano = $ano");
+            echo  "<script>alert('Ano editado com sucesso.');</script>";
+            echo "<script>window.location='../view/livros.php';</script>";
+        }
+    }
 ?>

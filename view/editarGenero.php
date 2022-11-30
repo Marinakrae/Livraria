@@ -30,7 +30,7 @@
                         <a class="nav-link active" aria-current="page" href="cadastroLivro.php">Cadastrar livro</a>
                     </li>
                 </ul>
-                <form class="d-flex" method="POST" action="../control/controle.php">
+                <form class="d-flex" method="GET" action="../control/controle.php">
                     <button class="btn btn-outline-light" type="submit" name="opcao" value="sair">Sair</button>
                 </form>
             </div>

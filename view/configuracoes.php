@@ -54,7 +54,7 @@
                         echo "<td>", $row['nome'], "</td>";
                         echo "<td>", $row['senha'], "</td>";
                         echo "<td><a href='editarUsuario.php?id=$row[id]'>Editar</a></td>";
-                        echo "<td><a href='../control/controleGenero.php?id=$row[id]&opcao=deletar'>Apagar</a></td>";
+                        echo "<td><a href='../control/controle.php?id=$row[id]&opcao=deletar'>Apagar</a></td>";
                     echo "</tr>";
                 ?>
             </tbody>
