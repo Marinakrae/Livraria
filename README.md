@@ -13,6 +13,8 @@ Nele é possível:
 
 ---
 
-<p align="center">
-  By Marinakrae
-</p>
+<a href="https://github.com/Marinakrae">
+  <p align="center">
+    By Marinakrae
+  </p>  
+</a>
