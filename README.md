@@ -12,9 +12,7 @@ Nele é possível:
 <img src="https://github.com/Marinakrae/imagens_sites/blob/a9e68c155808b1656819d02a50a3a3a3be27525f/pepega-reading.gif" height="100">
 
 ---
+<p align="center">
+  By <a href="https://github.com/Marinakrae"> Marinakrae </a>
+</p>  
 
-<a href="https://github.com/Marinakrae">
-  <p align="center">
-    By Marinakrae
-  </p>  
-</a>
