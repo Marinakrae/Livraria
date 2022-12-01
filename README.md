@@ -14,5 +14,5 @@ Nele é possível:
 ---
 
 <p align="center">
-  README by Marinakrae
+  Descrição by Marinakrae
 </p>
