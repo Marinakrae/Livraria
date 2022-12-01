@@ -14,5 +14,5 @@ Nele é possível:
 ---
 
 <p align="center">
-  Descrição by Marinakrae
+  By Marinakrae
 </p>
