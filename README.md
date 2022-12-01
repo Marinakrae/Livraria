@@ -9,7 +9,7 @@ Nele é possível:
 - Cadastrar e generenciar livros que você recomenda a leitura
 - Novas funcionalidades em breve!
 
-<img src="https://github.com/Marinakrae/imagens_sites/blob/a9e68c155808b1656819d02a50a3a3a3be27525f/pepega-reading.gif" height:"100">
+<img src="https://github.com/Marinakrae/imagens_sites/blob/a9e68c155808b1656819d02a50a3a3a3be27525f/pepega-reading.gif" height="50">
 
 ---
 
